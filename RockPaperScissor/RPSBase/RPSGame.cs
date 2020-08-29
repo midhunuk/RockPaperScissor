@@ -8,14 +8,10 @@ namespace RPSBase
         private Player playerOne;
         private Player playerTwo;
 
-        public RPSGame(string playerOneName) :this(playerOneName, "CPU")
+        public RPSGame()
         {
-        }
-
-        public RPSGame(string playerOneName, string playerTwoName)
-        {
-            this.playerOne = new Player(playerOneName);
-            this.playerTwo = new Player(playerTwoName);
+            this.playerOne = new Player(Constants.DefaultPlayerOneName);
+            this.playerTwo = new Player(Constants.ComputerPlayerName);
         }
 
         public string Result { get; set; }
@@ -27,6 +23,18 @@ namespace RPSBase
         public double PlayerOneScore => this.playerOne.Score;
 
         public double PlayerTwoScore => this.playerTwo.Score;
+
+        public void SetPlayerName(string playerName)
+        {
+            this.playerOne.Name = playerName;
+            this.playerTwo.Name = Constants.ComputerPlayerName;
+        }
+
+        public void SetTwoPlayesName(string playerOneName, string playerTwoName)
+        {
+            this.playerOne.Name = playerOneName;
+            this.playerTwo.Name = playerTwoName;
+        }
 
         public void Game(RPS playerOneMove, RPS playerTwoMove)
         {
@@ -57,6 +65,7 @@ namespace RPSBase
             this.playerTwo.Score = 0;
             this.playerOne.Score = 0;
             this.Result = string.Empty;
+            this.SetPlayerName(Constants.DefaultPlayerOneName);
         }
 
         private void PlayerTwoWins()
@@ -72,5 +81,7 @@ namespace RPSBase
             this.playerOne.Score += Constants.WonScore;
             this.playerTwo.Score += Constants.LostScore;
         }
+
+       
     }
 }

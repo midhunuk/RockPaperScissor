@@ -14,6 +14,10 @@ namespace RPSBase
 
         double PlayerTwoScore { get; }
 
+        void SetPlayerName(string playerName);
+
+        void SetTwoPlayesName(string playerOneName, string playerTwoName);
+
         void Game(RPS playerOneMove, RPS playerTwoMove);
 
         void Reset();

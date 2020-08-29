@@ -11,5 +11,8 @@ namespace RPSBase.Model
         public const double DrawScore = 0.5;
         public const double WonScore = 1;
         public const double LostScore = 0;
+
+        public const string ComputerPlayerName = "CPU";
+        public const string DefaultPlayerOneName = "PlayerOne";
     }
 }

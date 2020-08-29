@@ -16,11 +16,12 @@ namespace RPSGUI
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            // TODO: Move default player name to game class.
-            var rpsGame = new RPSGame("Player One");
+            var rpsGame = new RPSGame();
             var mainWindowViewModel = new MainWindowViewModel(rpsGame);
-            this.MainWindow = new MainWindow();
-            this.MainWindow.DataContext = mainWindowViewModel;
+            this.MainWindow = new MainWindow
+            {
+                DataContext = mainWindowViewModel
+            };
             this.MainWindow.Show();
         }
     }
