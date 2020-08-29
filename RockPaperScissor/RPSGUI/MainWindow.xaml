@@ -12,40 +12,52 @@
                 <local:MainWindowViewModel/>
             </Grid.DataContext>
 
-        <Grid.Background>
-            <ImageBrush ImageSource="../Images/Background.jpg"/>
-        </Grid.Background>
+            <Grid.Background>
+                <ImageBrush ImageSource="../Images/Background.jpg"/>
+            </Grid.Background>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
                 <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.3*"/>
-                <RowDefinition Height="0.3*"/>
-                <RowDefinition Height="0.2*"/>
+                <!--<RowDefinition Height="0.3*"/>-->
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
             </Grid.RowDefinitions>
 
             <TextBlock FontWeight="Bold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       FontSize="36">
+                       FontSize="36"
+                       FontFamily="Comic Sans MS">
                 Rock Paper Scissor
             </TextBlock>
 
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
-                <Button >Rock</Button>
-                <Button>Paper</Button>
-                <Button>Scissor</Button>
+            <StackPanel Margin="10" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+            <Button Height="100" Width="100" Margin="10" Command="{Binding PlayerOneMoveCommand}" CommandParameter="Rock">Rock</Button>
+            <Button Height="100" Width="100" Margin="10" Command="{Binding PlayerOneMoveCommand}" CommandParameter="Paper">Paper</Button>
+            <Button Height="100" Width="100" Margin="10" Command="{Binding PlayerOneMoveCommand}" CommandParameter="Scissor">Scissor</Button>
             </StackPanel>
 
-            <DockPanel Grid.Row="4" LastChildFill="False">
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                    <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="Player One : "/>
-                    <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerOneName}"/>
-                </StackPanel>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+        <TextBlock Grid.Row="2" FontWeight="Bold" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding CpuTurns, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Row="3" FontWeight="Bold" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <DockPanel Margin="10" Grid.Row="4" LastChildFill="False">
+            <Button Margin="10" DockPanel.Dock="Right" Command="{Binding ResetGameCommand}">Reset</Button>
+
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
                 <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="Player Two : "/>
                 <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerTwoName}"/>
+                <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="  Score : "/>
+                <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerTwoScore, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="Player One : "/>
+                <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerOneName}"/>
+                <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="  Score : "/>
+                <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerOneScore, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
         </DockPanel>
 
         </Grid>

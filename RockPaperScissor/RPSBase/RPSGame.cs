@@ -18,12 +18,15 @@ namespace RPSBase
             this.playerTwo = new Player(playerTwoName);
         }
 
+        public string Result { get; set; }
+
         public void Game(RPS playerOneMove, RPS playerTwoMove)
         {
             if(playerOneMove == playerTwoMove)
             {
                 this.playerOne.Score += Constants.DrawScore;
                 this.playerTwo.Score += Constants.DrawScore;
+                this.Result = "Draw";
             }
 
             if((playerOneMove == RPS.Rock && playerTwoMove == RPS.Scissor) ||
@@ -43,12 +46,14 @@ namespace RPSBase
 
         private void PlayerTwoWins()
         {
+            this.Result = $"{this.playerTwo.Name} Wins";
             this.playerTwo.Score += Constants.WonScore;
             this.playerOne.Score += Constants.LostScore;
         }
 
         private void PlayerOneWins()
         {
+            this.Result = $"{this.playerOne.Name} Wins";
             this.playerOne.Score += Constants.WonScore;
             this.playerTwo.Score += Constants.LostScore;
         }
@@ -57,6 +62,7 @@ namespace RPSBase
         {
             this.playerTwo.Score = 0;
             this.playerOne.Score = 0;
+            this.Result = string.Empty;
         }
 
         public double GetPlayerOneScore()

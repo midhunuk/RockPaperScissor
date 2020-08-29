@@ -13,5 +13,12 @@ namespace RPSGUI
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var mainWindowViewModel = new MainWindowViewModel();
+            this.MainWindow = new MainWindow();
+            this.MainWindow.DataContext = mainWindowViewModel;
+            this.MainWindow.Show();
+        }
     }
 }
