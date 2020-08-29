@@ -6,7 +6,47 @@
         xmlns:local="clr-namespace:RPSGUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
     
-    </Grid>
+        <Grid>
+            <Grid.DataContext>
+                <local:MainWindowViewModel/>
+            </Grid.DataContext>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../Images/Background.jpg"/>
+        </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="36">
+                Rock Paper Scissor
+            </TextBlock>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+                <Button >Rock</Button>
+                <Button>Paper</Button>
+                <Button>Scissor</Button>
+            </StackPanel>
+
+            <DockPanel Grid.Row="4" LastChildFill="False">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="Player One : "/>
+                    <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerOneName}"/>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="Player Two : "/>
+                <TextBlock FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Text="{Binding PlayerTwoName}"/>
+            </StackPanel>
+        </DockPanel>
+
+        </Grid>
 </Window>

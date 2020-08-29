@@ -11,7 +11,7 @@ namespace RPSTest
         private RPSGame rPSGame;
         public RPSGameTest()
         {
-            rPSGame = new RPSGame();
+            rPSGame = new RPSGame("");
         }
 
         public void Dispose()

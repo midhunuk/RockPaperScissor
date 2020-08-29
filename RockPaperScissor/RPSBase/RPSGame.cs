@@ -8,10 +8,14 @@ namespace RPSBase
         private Player playerOne;
         private Player playerTwo;
 
-        public RPSGame()
+        public RPSGame(string playerOneName) :this(playerOneName, "CPU")
         {
-            this.playerOne = new Player();
-            this.playerTwo = new Player();
+        }
+
+        public RPSGame(string playerOneName, string playerTwoName)
+        {
+            this.playerOne = new Player(playerOneName);
+            this.playerTwo = new Player(playerTwoName);
         }
 
         public void Game(RPS playerOneMove, RPS playerTwoMove)
@@ -63,6 +67,16 @@ namespace RPSBase
         public double GetPlayerTwoScore()
         {
             return this.playerTwo.Score;
+        }
+
+        public string GetPlayerOneName()
+        {
+            return this.playerOne.Name;
+        }
+
+        public string GetPlayerTwoName()
+        {
+            return this.playerTwo.Name;
         }
     }
 }
