@@ -1,15 +1,12 @@
 ﻿using RPSBase.Model;
+using System;
 
 namespace RPSBase
 {
     public class RPSGame
     {
-        private double drawScore = 0.5;
-        private double winScore = 1;
-        private double lostScore = 0;
         private Player playerOne;
         private Player playerTwo;
-        
 
         public RPSGame()
         {
@@ -21,9 +18,51 @@ namespace RPSBase
         {
             if(playerOneMove == playerTwoMove)
             {
-                this.playerOne.Score += drawScore;
-                this.playerTwo.Score += drawScore;
+                this.playerOne.Score += Constants.DrawScore;
+                this.playerTwo.Score += Constants.DrawScore;
             }
+
+            if((playerOneMove == RPS.Rock && playerTwoMove == RPS.Scissor) ||
+                (playerOneMove == RPS.Paper && playerTwoMove == RPS.Rock) ||
+                (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Paper))
+            {
+                this.PlayerOneWins();
+            }
+
+            if((playerOneMove == RPS.Rock && playerTwoMove == RPS.Paper) ||
+                (playerOneMove == RPS.Paper && playerTwoMove == RPS.Scissor) ||
+                (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Rock))
+            {
+                this.PlayerTwoWins();
+            }
+        }
+
+        private void PlayerTwoWins()
+        {
+            this.playerTwo.Score += Constants.WonScore;
+            this.playerOne.Score += Constants.LostScore;
+        }
+
+        private void PlayerOneWins()
+        {
+            this.playerOne.Score += Constants.WonScore;
+            this.playerTwo.Score += Constants.LostScore;
+        }
+
+        public void Reset()
+        {
+            this.playerTwo.Score = 0;
+            this.playerOne.Score = 0;
+        }
+
+        public double GetPlayerOneScore()
+        {
+            return this.playerOne.Score;
+        }
+
+        public double GetPlayerTwoScore()
+        {
+            return this.playerTwo.Score;
         }
     }
 }

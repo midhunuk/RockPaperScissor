@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSBase", "RPSBase\RPSBase.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPSGUI", "RPSGUI\RPSGUI.csproj", "{BD845D97-1926-48B6-BEDE-2A1D647D719D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSTest", "RPSTest\RPSTest.csproj", "{740F465C-38EF-4464-B424-2EB44611919F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD845D97-1926-48B6-BEDE-2A1D647D719D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD845D97-1926-48B6-BEDE-2A1D647D719D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD845D97-1926-48B6-BEDE-2A1D647D719D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740F465C-38EF-4464-B424-2EB44611919F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740F465C-38EF-4464-B424-2EB44611919F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740F465C-38EF-4464-B424-2EB44611919F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740F465C-38EF-4464-B424-2EB44611919F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

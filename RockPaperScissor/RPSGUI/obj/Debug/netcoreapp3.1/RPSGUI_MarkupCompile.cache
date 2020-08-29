@@ -1,20 +1,20 @@
 ﻿RPSGUI
-1.0.0.0
+
 
 winexe
 C#
 .cs
-d:\Coding\GitRepos\RPSWPF\RockPaperScissor\RPSGUI\obj\Debug\netcoreapp3.1\
+D:\Coding\GitRepos\RPSWPF\RockPaperScissor\RPSGUI\obj\Debug\netcoreapp3.1\
 RPSGUI
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-d:\Coding\GitRepos\RPSWPF\RockPaperScissor\RPSGUI\App.xaml
-1219584333
+D:\Coding\GitRepos\RPSWPF\RockPaperScissor\RPSGUI\App.xaml
+11151548125
 
-5-1812552909
-192674553305
+3-917710711
+1921654412462
 MainWindow.xaml;
 
-True
+False
 

@@ -2,8 +2,8 @@
 {
     public enum RPS
     {
-        Rock, 
-        Scissor,
+        Rock,
         Paper,
+        Scissor,
     }
 }
