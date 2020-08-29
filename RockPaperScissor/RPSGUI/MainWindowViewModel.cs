@@ -9,14 +9,14 @@ namespace RPSGUI
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private RPSGame rPSGame;
+        private IRpsGame rPSGame;
         private string cpuTurns;
         private string result;
         private Random random;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IRpsGame rpsGame)
         {
-            rPSGame = new RPSGame("Player One");
+            this.rPSGame = rpsGame;
             this.random = new Random();
             this.PlayerOneMoveCommand = new RelayCommand<string>(this.PlayGame);
             this.ResetGameCommand = new RelayCommand(this.ResetGame);
@@ -38,13 +38,13 @@ namespace RPSGUI
 
         public RelayCommand ResetGameCommand { get; }
 
-        public string PlayerOneName => rPSGame.GetPlayerOneName();
+        public string PlayerOneName => rPSGame.PlayerOneName;
 
-        public string PlayerTwoName => rPSGame.GetPlayerTwoName();
+        public string PlayerTwoName => rPSGame.PlayerTwoName;
 
-        public double PlayerOneScore => rPSGame.GetPlayerOneScore();
+        public double PlayerOneScore => rPSGame.PlayerOneScore;
 
-        public double PlayerTwoScore => rPSGame.GetPlayerTwoScore();
+        public double PlayerTwoScore => rPSGame.PlayerTwoScore;
 
         private void PlayGame(string playerOneMove)
         {

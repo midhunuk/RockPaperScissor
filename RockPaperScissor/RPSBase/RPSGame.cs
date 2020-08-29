@@ -3,7 +3,7 @@ using System;
 
 namespace RPSBase
 {
-    public class RPSGame
+    public class RPSGame : IRpsGame
     {
         private Player playerOne;
         private Player playerTwo;
@@ -19,6 +19,14 @@ namespace RPSBase
         }
 
         public string Result { get; set; }
+
+        public string PlayerOneName => this.playerOne.Name;
+
+        public string PlayerTwoName => this.playerTwo.Name;
+
+        public double PlayerOneScore => this.playerOne.Score;
+
+        public double PlayerTwoScore => this.playerTwo.Score;
 
         public void Game(RPS playerOneMove, RPS playerTwoMove)
         {
@@ -44,6 +52,13 @@ namespace RPSBase
             }
         }
 
+        public void Reset()
+        {
+            this.playerTwo.Score = 0;
+            this.playerOne.Score = 0;
+            this.Result = string.Empty;
+        }
+
         private void PlayerTwoWins()
         {
             this.Result = $"{this.playerTwo.Name} Wins";
@@ -56,33 +71,6 @@ namespace RPSBase
             this.Result = $"{this.playerOne.Name} Wins";
             this.playerOne.Score += Constants.WonScore;
             this.playerTwo.Score += Constants.LostScore;
-        }
-
-        public void Reset()
-        {
-            this.playerTwo.Score = 0;
-            this.playerOne.Score = 0;
-            this.Result = string.Empty;
-        }
-
-        public double GetPlayerOneScore()
-        {
-            return this.playerOne.Score;
-        }
-
-        public double GetPlayerTwoScore()
-        {
-            return this.playerTwo.Score;
-        }
-
-        public string GetPlayerOneName()
-        {
-            return this.playerOne.Name;
-        }
-
-        public string GetPlayerTwoName()
-        {
-            return this.playerTwo.Name;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPSBase;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,7 +16,9 @@ namespace RPSGUI
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var mainWindowViewModel = new MainWindowViewModel();
+            // TODO: Move default player name to game class.
+            var rpsGame = new RPSGame("Player One");
+            var mainWindowViewModel = new MainWindowViewModel(rpsGame);
             this.MainWindow = new MainWindow();
             this.MainWindow.DataContext = mainWindowViewModel;
             this.MainWindow.Show();
