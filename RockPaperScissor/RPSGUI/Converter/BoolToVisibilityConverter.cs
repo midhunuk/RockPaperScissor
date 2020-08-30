@@ -14,7 +14,7 @@ namespace RPSGUI.Converter
         {
             if(!(value is bool))
             {
-                throw new ArgumentException("Argumnet is not boolean type");
+                throw new ArgumentException("Argument is not boolean type");
             }
 
             var input = IsInverted ? !(bool)value : (bool)value;

@@ -23,6 +23,7 @@ namespace RPSGUI
             this.PlayerOneMoveCommand = new RelayCommand<string>(this.PlayGame);
             this.ResetGameCommand = new RelayCommand(this.ResetGame);
             this.StartGameCommand = new RelayCommand(this.StartGame, this.CanExecuteStartGameCommand);
+            this.NewGameCommand = new RelayCommand(this.NewGame);
         }
 
         public string CpuTurns
@@ -59,6 +60,8 @@ namespace RPSGUI
 
         public RelayCommand StartGameCommand { get; }
 
+        public RelayCommand NewGameCommand { get; }
+
         public string PlayerOneName => rPSGame.PlayerOneName;
 
         public string PlayerTwoName => rPSGame.PlayerTwoName;
@@ -70,7 +73,6 @@ namespace RPSGUI
         private void StartGame()
         {
             this.ResetGame();
-            this.rPSGame.SetPlayerName(this.PlayerOneNameInput);
             this.IsStartViewShown = false;
             this.NameChanged();
         }
@@ -78,6 +80,13 @@ namespace RPSGUI
         private bool CanExecuteStartGameCommand()
         {
             return !string.IsNullOrEmpty(this.PlayerOneNameInput);
+        }
+
+        private void NewGame()
+        {
+            this.ResetGame();
+            this.PlayerOneNameInput = string.Empty;
+            this.IsStartViewShown = true;
         }
 
         private void PlayGame(string playerOneMove)
@@ -96,6 +105,7 @@ namespace RPSGUI
             this.rPSGame.Reset();
             this.CpuTurns = string.Empty;
             this.Result = this.rPSGame.Result;
+            this.rPSGame.SetPlayerName(this.PlayerOneNameInput);
             this.ScoreChanged();
             this.NameChanged();
         }

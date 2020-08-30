@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <None Remove="Images\Background.jpg" />
+    <None Remove="Images\new-box.png" />
+    <None Remove="Images\restart.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +22,12 @@
 
   <ItemGroup>
     <Resource Include="Images\Background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\new-box.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\restart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

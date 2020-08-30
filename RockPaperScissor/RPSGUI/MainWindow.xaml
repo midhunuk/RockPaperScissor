@@ -10,8 +10,8 @@
 
     <Grid>
         <Grid.Resources>
-            <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-            <converter:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" IsInverted="True" />
+            <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsCollapsed="True" />
+            <converter:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" IsInverted="True" IsCollapsed="True" />
         </Grid.Resources>
         <Grid.Background>
             <ImageBrush ImageSource="../Images/Background.jpg"/>
@@ -32,14 +32,14 @@
         </TextBlock>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"
-                    Visibility="{Binding IsStartViewShown, Converter={StaticResource BoolToVisibilityConverter}}">
+                    Visibility="{Binding IsStartViewShown, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
             <TextBlock Margin="10" FontWeight="Bold" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="New Game"/>
             <TextBlock Margin="10" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter Player Name"/>
             <TextBox Margin="10" Background="Transparent"  FontWeight="Bold" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="{Binding PlayerOneNameInput, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Margin="10" DockPanel.Dock="Right" Command="{Binding StartGameCommand}">Start</Button>
         </StackPanel>
 
-        <Grid Grid.Row="1" Visibility="{Binding IsStartViewShown, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+        <Grid Grid.Row="1" Visibility="{Binding IsStartViewShown, Mode=TwoWay, Converter={StaticResource InverseBoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.3*"/>
                 <RowDefinition Height="0.1*"/>
@@ -57,7 +57,12 @@
             <TextBlock Grid.Row="2" FontWeight="Bold" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}"/>
 
             <DockPanel Margin="10" Grid.Row="3" LastChildFill="False">
-                <Button Margin="10" DockPanel.Dock="Right" Command="{Binding ResetGameCommand}">Reset</Button>
+                <Button Margin="10" DockPanel.Dock="Right" Command="{Binding ResetGameCommand}" BorderThickness="0" Height="40" Width="40" Background="Transparent">
+                    <Image Source="../Images/restart.png"/>
+                </Button>
+                <Button Margin="10" DockPanel.Dock="Right" Command="{Binding NewGameCommand}" BorderThickness="0" Height="40" Width="40" Background="Transparent">
+                    <Image Source="../Images/new-box.png"/>
+                </Button>
 
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
                     <TextBlock FontWeight="Bold" FontSize="18" VerticalAlignment="Center" Text="Player Two : "/>
