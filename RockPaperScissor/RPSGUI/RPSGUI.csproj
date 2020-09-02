@@ -10,6 +10,8 @@
     <None Remove="Images\Background.jpg" />
     <None Remove="Images\new-box.png" />
     <None Remove="Images\restart.png" />
+    <None Remove="Images\TBFrame.jpg" />
+    <None Remove="Images\TextBoxBorder.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\restart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TextBoxBorder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
