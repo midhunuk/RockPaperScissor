@@ -45,20 +45,24 @@ namespace RPSBase
                 this.Result = "Draw";
             }
 
-            if((playerOneMove == RPS.Rock && playerTwoMove == RPS.Scissor) ||
+            if ((playerOneMove == RPS.Rock && playerTwoMove == RPS.Scissor) ||
                 (playerOneMove == RPS.Paper && playerTwoMove == RPS.Rock) ||
                 (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Paper))
             {
                 this.PlayerOneWins();
             }
 
-            if((playerOneMove == RPS.Rock && playerTwoMove == RPS.Paper) ||
+            if ((playerOneMove == RPS.Rock && playerTwoMove == RPS.Paper) ||
                 (playerOneMove == RPS.Paper && playerTwoMove == RPS.Scissor) ||
                 (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Rock))
             {
                 this.PlayerTwoWins();
             }
+
+            //this.DetermineWinner(playerOneMove, playerTwoMove);
         }
+
+        
 
         public void Reset()
         {
@@ -67,6 +71,18 @@ namespace RPSBase
             this.Result = string.Empty;
             this.SetPlayerName(Constants.DefaultPlayerOneName);
         }
+
+    //    public static string RockPaperScissors(string first, string second)
+    //            => (first, second) switch
+    //{
+    //    ("rock", "paper") => "rock is covered by paper. Paper wins.",
+    //    ("rock", "scissors") => "rock breaks scissors. Rock wins.",
+    //    ("paper", "rock") => "paper covers rock. Paper wins.",
+    //    ("paper", "scissors") => "paper is cut by scissors. Scissors wins.",
+    //    ("scissors", "rock") => "scissors is broken by rock. Rock wins.",
+    //    ("scissors", "paper") => "scissors cuts paper. Scissors wins.",
+    //    (_, _) => "tie"
+    //};
 
         private void PlayerTwoWins()
         {

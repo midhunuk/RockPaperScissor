@@ -12,7 +12,7 @@
         <Grid.Resources>
             <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" IsCollapsed="True" />
             <converter:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" IsInverted="True" IsCollapsed="True" />
-            <Style TargetType="Button" >
+            <Style TargetType="Button">
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Background" Value="Transparent"/>
                 <!--<Setter Property="Template">
@@ -54,10 +54,9 @@
             <TextBlock Margin="10" FontWeight="Bold" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="New Game"/>
             <TextBlock Margin="10" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter Player Name"/>
             <Grid>
-                <!--<Image Width="250" Source="../Images/TextBoxBorder.png"/>-->
                 <TextBox Margin="10"  FontWeight="Bold" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="{Binding PlayerOneNameInput, UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.Style>
-                        <Style TargetType="TextBox" >
+                        <Style TargetType="TextBox">
                             <Setter Property="BorderThickness" Value="0"/>
                         </Style>
                     </TextBox.Style>
@@ -73,7 +72,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.3*"/>
                 <RowDefinition Height="0.1*"/>
-                <!--<RowDefinition Height="0.3*"/>-->
                 <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="0.1*"/>
             </Grid.RowDefinitions>
