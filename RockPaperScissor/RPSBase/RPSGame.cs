@@ -36,33 +36,36 @@ namespace RPSBase
             this.playerTwo.Name = playerTwoName;
         }
 
+        //public void Game(RPS playerOneMove, RPS playerTwoMove)
+        //{
+        //    if(playerOneMove == playerTwoMove)
+        //    {
+        //        this.playerOne.Score += Constants.DrawScore;
+        //        this.playerTwo.Score += Constants.DrawScore;
+        //        this.Result = "Draw";
+        //    }
+
+        //    if ((playerOneMove == RPS.Rock && playerTwoMove == RPS.Scissor) ||
+        //        (playerOneMove == RPS.Paper && playerTwoMove == RPS.Rock) ||
+        //        (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Paper))
+        //    {
+        //        this.PlayerOneWins();
+        //    }
+
+        //    if ((playerOneMove == RPS.Rock && playerTwoMove == RPS.Paper) ||
+        //        (playerOneMove == RPS.Paper && playerTwoMove == RPS.Scissor) ||
+        //        (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Rock))
+        //    {
+        //        this.PlayerTwoWins();
+        //    }
+
+        //    //this.DetermineWinner(playerOneMove, playerTwoMove);
+        //}
+
         public void Game(RPS playerOneMove, RPS playerTwoMove)
         {
-            if(playerOneMove == playerTwoMove)
-            {
-                this.playerOne.Score += Constants.DrawScore;
-                this.playerTwo.Score += Constants.DrawScore;
-                this.Result = "Draw";
-            }
-
-            if ((playerOneMove == RPS.Rock && playerTwoMove == RPS.Scissor) ||
-                (playerOneMove == RPS.Paper && playerTwoMove == RPS.Rock) ||
-                (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Paper))
-            {
-                this.PlayerOneWins();
-            }
-
-            if ((playerOneMove == RPS.Rock && playerTwoMove == RPS.Paper) ||
-                (playerOneMove == RPS.Paper && playerTwoMove == RPS.Scissor) ||
-                (playerOneMove == RPS.Scissor && playerTwoMove == RPS.Rock))
-            {
-                this.PlayerTwoWins();
-            }
-
-            //this.DetermineWinner(playerOneMove, playerTwoMove);
+            this.RockPaperScissors(playerOneMove, playerTwoMove).Invoke();
         }
-
-        
 
         public void Reset()
         {
@@ -72,17 +75,18 @@ namespace RPSBase
             this.SetPlayerName(Constants.DefaultPlayerOneName);
         }
 
-    //    public static string RockPaperScissors(string first, string second)
-    //            => (first, second) switch
-    //{
-    //    ("rock", "paper") => "rock is covered by paper. Paper wins.",
-    //    ("rock", "scissors") => "rock breaks scissors. Rock wins.",
-    //    ("paper", "rock") => "paper covers rock. Paper wins.",
-    //    ("paper", "scissors") => "paper is cut by scissors. Scissors wins.",
-    //    ("scissors", "rock") => "scissors is broken by rock. Rock wins.",
-    //    ("scissors", "paper") => "scissors cuts paper. Scissors wins.",
-    //    (_, _) => "tie"
-    //};
+
+        public  Action RockPaperScissors(RPS playerOneMove, RPS playerTwoMove)
+            => (playerOneMove, playerTwoMove) switch
+            {
+                (RPS.Rock, RPS.Paper) => PlayerTwoWins,
+                (RPS.Rock, RPS.Scissor) => PlayerOneWins,
+                (RPS.Paper, RPS.Rock) => PlayerOneWins,
+                (RPS.Paper, RPS.Scissor) => PlayerTwoWins,
+                (RPS.Scissor, RPS.Rock) => PlayerTwoWins,
+                (RPS.Scissor, RPS.Paper) => PlayerOneWins,
+                (_, _) => Draw
+            };
 
         private void PlayerTwoWins()
         {
@@ -98,6 +102,12 @@ namespace RPSBase
             this.playerTwo.Score += Constants.LostScore;
         }
 
-       
+        private void Draw()
+        {
+            this.playerOne.Score += Constants.DrawScore;
+            this.playerTwo.Score += Constants.DrawScore;
+            this.Result = "Draw";
+        }
+
     }
 }
